@@ -1,0 +1,436 @@
+@charset "UTF-8";
+
+/* reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:link {color: #000;}
+a:visited {color: #000;}
+a:active {color: #000;}
+a:hover {color: #000;}
+a:focus {color: #000;}
+span {color: #000000;}
+/* reset */
+
+
+/* div#wrap 영역 */
+div#wrap {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+/* div#wrap 영역 */
+
+/* header#header */
+header#header {
+    width: 100%;
+    background:#2b96ed;
+    border-bottom: 1px solid #1583db;
+}
+
+header#header>* {
+    width: 1060px;
+    margin: 0 auto;
+}
+
+header#header div.topLogo {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header#header div.topLogo div.bar {
+    width: 20px;
+    display: none;
+}
+
+header#header div.topLogo div.bar span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+}
+
+header#header div.topLogo div.bar span:nth-child(2) {
+    margin: 5px 0;
+}
+
+header#header div.topLogo i {
+    display: none;
+    color: #ffffff;
+}
+
+header#header div.topLogo h1>a {
+    color: transparent;
+    background: url(../images/5e63007c40ef9effbda3d797ea314a0e.png) no-repeat;
+    background-size: 130px;
+    cursor: pointer;
+}
+
+header#header div.topLogo ul.lnb {
+    list-style: none;
+}
+
+header#header div.topLogo ul.lnb li {
+    float: left;
+    padding: 6px 10px;
+    margin-left: 18px;
+}
+
+header#header div.topLogo ul.lnb li:last-child {
+    border: 1px solid #fff;
+    border-radius: 2px;
+    padding: 6px 30px;
+    cursor: pointer;
+}
+
+header#header div.topLogo ul.lnb li:last-child:hover {
+    background: #5caef1;
+    transition: all 0.2s;
+}
+
+header#header div.topLogo ul.lnb li>a {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+header#header nav.gnb ul {
+    list-style: none;
+}
+
+header#header nav.gnb ul li {
+    display: inline-block;
+    padding: 14px 4px;
+    margin-right: 16px;
+}
+
+header#header nav.gnb ul li.hover {
+    border-bottom: 3px solid #fff;
+}
+
+header#header nav.gnb ul li:hover {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.7);
+}
+
+header#header nav.gnb ul li span.gnbIcon {
+    margin: 0 auto;
+    display: none;
+}
+
+header#header nav.gnb ul li.hover span.gnbLabel {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+header#header nav.gnb ul li span.gnbLabel {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+    font-size: 1rem;
+}
+/* header#header */
+
+main#main {
+    margin-top: 50px;
+}
+
+/* div#header 영역 시작 */
+div#form_header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+div#form_header h2 {
+    font-size: 19px;
+}
+/* div#header 영역 끝 */
+
+/* div#form_main 영역 시작 */
+main#main>form {
+    width: 660px;
+    margin: 0 auto;
+}
+
+div#form_main>div.form {
+    border: 1px solid #ddd;
+    border-bottom: none;
+    padding: 14px 4px 14px 22px;
+}
+
+div#form_main>div.form:last-child {
+    border-bottom: 1px solid #ddd;
+}
+
+div#form_main>div.form>input:not([type=radio]) {
+    width: 400px;
+    border: none;
+    outline: none;
+}
+
+div#form_main>div.form>input::placeholder {
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+div#form_main>div.select {
+    padding: 4px 22px;
+}
+
+div#form_main>div.form>select {
+    width: 96px;
+    padding: 10px;
+    vertical-align: top;
+}
+
+div#form_main>div.form>input[type=radio]:nth-child(3) {
+    border: 1px solid #000;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+div#form_main>div.form>span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+div#form_main>div.form>input[type=button] {
+    width: 90px;
+    font-size: 13px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    padding: 4px;
+    margin-left: 134px;
+}
+/* div#form_main 영역 끝 */
+
+/* div#age 영역 시작 */
+div#age {
+    color: #ff0000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+div#age p {
+    color: #777777;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+/* div#age 영역 끝 */
+
+/* div#chkBox 영역 시작 */
+div#chkBox {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+div#chkBox>div#all {
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    padding: 14px 22px;
+}
+
+div#chkBox>table {
+    padding: 8px;
+}
+
+div#chkBox>table td {
+    font-size: 12px;
+    font-weight: bold;
+    word-spacing: -3px;
+    padding: 5px 34px;
+}
+
+div#chkBox>table td>input[type=button] {
+    font-size: 11px;
+    padding: 2px 3px 0;
+}
+
+/* div#chkBox 영역 끝 */
+
+/* div#join 영역 시작 */
+div#join {
+    text-align: center;
+}
+
+div#join input {
+    width: 228px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 18px;
+    border: none;
+    background-color: #2b96ed;
+}
+
+/* footer#footer 시작 */
+footer#footer {
+    margin-top: 100px;
+}
+/* section.customerService */
+
+footer#footer section.customerService {
+    padding: 30px 20px;
+    border-top: 1px solid #d8d8d8;
+    color: #666;
+}
+
+footer#footer section.customerService h3:first-child {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+footer#footer section.customerService p {
+    font-size: 12px;
+    color: #444;
+}
+
+footer#footer section.customerService p:nth-child(3) {
+    margin-top: 10px;
+}
+
+footer#footer section.customerService p span {
+    color: #777;
+}
+/* section.customerService */
+
+/* section.footer_menu */
+
+footer#footer section.footer_menu{
+    padding: 20px;
+}
+
+footer#footer section.footer_menu ul{
+    list-style: none;
+}
+
+footer#footer section.footer_menu ul.F_menu>li {
+    padding: 16px 0;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+footer#footer section.footer_menu ul.F_menu>li:first-child {
+    border-top: 1px solid #d8d8d8;
+}
+
+footer#footer section.footer_menu ul.F_menu>li>a {
+    font-weight: bold;
+    color: #666666;
+}
+
+footer#footer section.footer_menu ul.subF_menu{
+    display: none;
+}
+/* section.footer_menu */
+
+/* section.footer_bottom */
+footer#footer section.footer_bottom{
+    padding: 20px;
+}
+
+footer#footer section.footer_bottom ul{
+    list-style: none;
+}
+
+footer#footer section.footer_bottom ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+footer#footer section.footer_bottom ul li a{
+    color: #666666;
+    font-size: 15px;
+}
+
+footer#footer section.footer_bottom ul li:nth-child(2) a{
+    font-weight: bold;
+}
+
+footer#footer section.footer_bottom p{
+    color: #777777;
+    font-size: 12px;
+}
+
+footer#footer section.footer_bottom div:nth-child(2){
+    margin: 20px 0;
+}
+
+/* section.footer_bottom */
+
+/* footer#footer 끝 */
+
+/* div#join 영역 끝 */ 
+
+@media all and (max-width:960px) {
+    header#header>*{
+        width: 90%;
+    } 
+    header#header div.topLogo div.bar {
+        display: block;
+    }
+    
+    header#header div.topLogo ul.lnb {
+        display: none;
+    }
+    
+    header#header div.topLogo i {
+        display: block;
+    }
+    
+    header#header nav.gnb ul {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media all and (max-width:680px) {
+    header#header {
+        min-width: 450px;
+    }
+    header#header div.topLogo h1 { 
+        width: 92px;
+        height: 24px;
+        background-size: 92px;
+    }
+header#header nav.gnb ul li span.gnbIcon {
+    width: 24px;
+    height: 24px;
+    display: block;
+    opacity: 0.7;
+}
+header#header nav.gnb ul li a span.gnbIcon1 {
+    background: url(../images/d44ac632ec5b4f671650934c88ebec8a.svg) no-repeat 0 0/286px 80px;
+    background-position: -146px -1px;
+    opacity: 1;
+}
+
+header#header nav.gnb ul li a span.gnbIcon3 {
+    background: url(../images/d44ac632ec5b4f671650934c88ebec8a.svg) no-repeat 0 0/286px 80px;
+    background-position: -33px -2px;
+}
+
+header#header nav.gnb ul li a span.gnbIcon4 {
+    background: url(../images/d44ac632ec5b4f671650934c88ebec8a.svg) no-repeat 0 0/286px 80px;
+    background-position: -90px -2px;
+}
+
+header#header nav.gnb ul li:nth-child(6),
+header#header nav.gnb ul li:nth-child(7),
+header#header nav.gnb ul li:nth-child(8) {
+    display: none;
+}
+}

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이리얼트립</title>
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css"> -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/slick.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="topLogo">
+                <div class="bar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <h1 class="logo">마이리얼트립</h1>
+                <ul class="lnb">
+                    <li><a href="#">파트너 등록하기</a></li>
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="join.html">회원가입</a></li>
+                </ul>
+                <i class='fas fa-search'></i>
+            </div>
+            <nav class="gnb">
+                <ul>
+                    <li class="hover">
+                        <a href="#">
+                            <span class="gnbIcon gnbIcon1"></span>
+                            <span class="gnbLabel">투어&티켓</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="gnbIcon gnbIcon2"><img class="LnbLocalNavItem-module__icon--Z6YDQ" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTE4LjU1OCA5LjMyYzIuMjQ3LjU5IDMuNjY1IDIuNjk1IDMuNDEzIDQuODkyLS4yMjMuOTU1LS41OTIgMS44OTQtMS4xMTkgMi43ODctMi44MiA0Ljc4Mi05LjA2NyA2LjQyLTEzLjk1MSAzLjY2LTIuMDkxLTEuMTgyLTMuNTk0LTIuOTc4LTQuNDA4LTUuMDIyLjcuNTcgMS41MzMgMS4wMDMgMi40NjggMS4yNDkgMy4zOTUuODkgNi44ODMtMS4wMjIgNy44OTktNC4yODlsLjA2MS0uMjEtLjAwNS0uMDAzLjAxMy0uMDRjLjc0LTIuMzEgMy4yMTgtMy42NTcgNS42MjktMy4wMjR6TTE3LjExNCAzLjM0YzIuMzE1IDEuMzA5IDMuOTA5IDMuMzcgNC42NDUgNS42ODctLjc0OC0uNjc2LTEuNjctMS4xODktMi43Mi0xLjQ2NC0zLjM5NS0uODktNi44ODMgMS4wMjItNy44OTkgNC4yODhsLS4wNjEuMjEuMDA1LjAwMS0uMDEzLjA0MmMtLjc0IDIuMzEtMy4yMTggMy42NTctNS42MjkgMy4wMjUtMi40MS0uNjMyLTMuODY2LTMuMDA5LTMuMzMyLTUuMzdsLjA1LS4xOTYtLjA1Ny0uMDE1Yy4yMjYtLjg3My41NzctMS43MyAxLjA2LTIuNTQ4IDIuODItNC43ODIgOS4wNjYtNi40MiAxMy45NS0zLjY2eiIvPgo8L3N2Zz4K" alt="domestic"></span> 
+                            <span class="gnbLabel">국내여행</span>
+                       </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="gnbIcon gnbIcon3"></span>
+                            <span class="gnbLabel">항공권</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="gnbIcon gnbIcon4"></span>
+                            <span class="gnbLabel">숙소</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="gnbIcon gnbIcon5"><img class="LnbLocalNavItem-module__icon--Z6YDQ" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTE0IDBjMS4xMDUgMCAyIC44OTUgMiAydjJoMi41QzE5Ljg4IDQgMjEgNS4xMiAyMSA2LjV2MTNjMCAxLjM4LTEuMTIgMi41LTIuNSAyLjVIMTh2LjVjMCAuODI4LS42NzIgMS41LTEuNSAxLjVzLTEuNS0uNjcyLTEuNS0xLjVWMjJIOXYuNWMwIC44MjgtLjY3MiAxLjUtMS41IDEuNVM2IDIzLjMyOCA2IDIyLjVWMjJoLS41QzQuMTIgMjIgMyAyMC44OCAzIDE5LjV2LTEzQzMgNS4xMiA0LjEyIDQgNS41IDRIOFYyYzAtMS4xMDUuODk1LTIgMi0yaDR6bTIgOEg4Yy0uNTUyIDAtMSAuNDQ4LTEgMXMuNDQ4IDEgMSAxaDhjLjU1MiAwIDEtLjQ0OCAxLTFzLS40NDgtMS0xLTF6bS0yLTZoLTR2Mmg0VjJ6Ii8+Cjwvc3ZnPgo=" alt="package"></span>
+                            <span class="gnbLabel">패키지</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="gnbLabel">제주렌터카</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="gnbLabel">골프</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="gnbLabel">할인혜택</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main id="main">
+            <section class="where">
+                <h1 class="where_title">어디로 떠나세요?</h1>
+                <form>
+                    <div class="search">
+                        <i class='fas fa-search clickBf'></i>
+                        <input type="text" class="clickBf" placeholder="여행지나 상품을 검색해보세요!">
+                    </div>
+                </form>
+                <div id="container">
+                    <div class="slide_wrap">
+                        <div class="slide_box">
+                            <div class="local_slide">
+                                <div class="local local1">
+                                    <div class="gradient"></div>
+                                    <h3>제주도</h3>
+                                </div>
+                                <div class="local local2">
+                                    <div class="gradient"></div>
+                                    <h3>서울</h3>
+                                </div>
+                                <div class="local local3">
+                                    <div class="gradient"></div>
+                                    <h3>경상도</h3>
+                                </div>
+                                <div class="local local4">
+                                    <div class="gradient"></div>
+                                    <h3>경주</h3>
+                                </div>
+                                <div class="local local5">
+                                    <div class="gradient"></div>
+                                    <h3>경기도</h3>
+                                </div>
+                                <div class="local local6">
+                                    <div class="gradient"></div>
+                                    <h3>전라도</h3>
+                                </div> 
+                                <div class="local local7">
+                                    <div class="gradient"></div>
+                                    <h3>전라도</h3>
+                                </div> 
+                                <div class="local local8">
+                                    <div class="gradient"></div>
+                                    <h3>전라도</h3>
+                                </div> 
+                                <div class="local local9">
+                                </div>
+                                <div class="local local10">
+                                </div>
+                            </div> <!--local_slide-->
+                        </div><!--slide_box-->
+                    </div><!--slide_wrap-->
+                </div>
+            </section>
+            <section class="main_slide">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <span class="slide01"></span>
+                        </div>
+                        <div class="swiper-slide">
+                            <span class="slide02"></span>
+                        </div>
+                        <div class="swiper-slide">
+                            <span class="slide03"></span>
+                        </div>
+                        <div class="swiper-slide">
+                            <span class="slide04"></span>
+                        </div>
+                        <div class="swiper-slide">
+                            <span class="slide05"></span>
+                        </div>
+                        <div class="swiper-slide">
+                            <span class="slide06"></span>
+                        </div>
+                        <div class="swiper-slide">
+                            <span class="slide07"></span>
+                        </div>
+                        <div class="swiper-slide">
+                            <span class="slide08"></span>
+                        </div>
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </section>
+            <div class="invite">
+                <img src="images/04805fd6ae2e4dd1317124b6cf1c89fb.svg" alt="">
+                <div>
+                    <h3>친구 초대하면 <span>무제한 포인트</span>를 드립니다!</h3>
+                    <p>친구에게 5,000원 쿠폰을 선물하고 2,000 포인트를 받으세요.</p>
+                </div>
+                <button type="button">포인트 받기</button>
+            </div>
+            <div class="culture">
+                <h2>꿀잼 보장</h2>
+                <div class="culture_slide">
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/515688_medium_1591941971.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">티켓/패스 ㆍ 서울</p>
+                            <h3>[최저가] 에버랜드 지정일 종일 자유이용권</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>5</span>
+                                </div>
+                                <div>
+                                    <span>29,600원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/393908_medium_1590736802.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">티켓/패스 ㆍ 강원도</p>
+                            <h3>[얼리버드 특가] 대명 오션월드 입장권(6/2~)</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>32</span>
+                                </div>
+                                <div>
+                                    <span>19,500원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/500207_medium_1585650375.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">티켓/패스 ㆍ 경주</p>
+                            <h3>[최저가] 경주월드 자유이용권</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>53</span>
+                                </div>
+                                <div>
+                                    <span>20,800원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/500214_medium_1589295844.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">티켓/패스 ㆍ 서울</p>
+                            <h3>[최저가] 서울랜드 자유이용권 (종일권)</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>48</span>
+                                </div>
+                                <div>
+                                    <span>26,800원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="culture">
+                <h2>제주도 렌터카 50% 6월21일까지만 이 가격!!</h2>
+                <div class="culture_slide">
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/511361_medium_1590047092.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">티켓/패스 ㆍ 제주도</p>
+                            <h3>[렌트카] 렌트카플랫폼 찜카 할인권_1,3,5,7,10만원권(중복구매...</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>26</span>
+                                </div>
+                                <div>
+                                    <span>5,000원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/507835_medium_1588834077.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">티켓/패스 ㆍ 제주도</p>
+                            <h3>[렌트카] 렌트카플랫폼 찜카 10만원권</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>35</span>
+                                </div>
+                                <div>
+                                    <span>49,000원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/507833_medium_1588833957.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">티켓/패스 ㆍ 제주도</p>
+                            <h3>[렌트카] 렌트카플랫폼 찜카 5만원권</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>35</span>
+                                </div>
+                                <div>
+                                    <span>25,000원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/507831_medium_1588833855.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">티켓/패스 ㆍ 제주도</p>
+                            <h3>[렌트카] 렌트카플랫폼 찜카 3만원권</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>14</span>
+                                </div>
+                                <div>
+                                    <span>15,000원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="culture">
+                <h2>제주 필수 티켓</h2>
+                <div class="culture_slide">
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/34838_medium_1568101519.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">티켓/패스 ㆍ 제주도</p>
+                            <h3>[최저가] 제주 카멜리아힐 입장권</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>211</span>
+                                </div>
+                                <div>
+                                    <span>3,900원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/330232_medium_1573705911.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">티켓/패스 ㆍ 제주도</p>
+                            <h3>[쿠폰할인] 아쿠아플라넷 제주 입장권</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>36</span>
+                                </div>
+                                <div>
+                                    <span>25,200원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/34842_medium_1525339480.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">티켓/패스 ㆍ 제주도</p>
+                            <h3>[최저가] 제주 산방산 탄산오천 이용권</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>98</span>
+                                </div>
+                                <div>
+                                    <span>4,500원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/34572_medium_1585117767.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">티켓/패스 ㆍ 제주도</p>
+                            <h3>[최저가] 제주 에코랜드 입장권</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>88</span>
+                                </div>
+                                <div>
+                                    <span>8,700원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="culture">
+                <h2>제주 감성 펜션 & 할인 쿠폰</h2>
+                <div class="culture_slide">
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/507710_medium_1589423374.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">한인민박 ㆍ 제주도</p>
+                            <h3>[애월/펜션] 플루메리아 E타입 #애월 #오션뷰 #바베큐 #스파</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>1</span>
+                                </div>
+                                <div>
+                                    <span>216,000원 / 1박</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/500141_medium_1586238366.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">한인민박 ㆍ 제주도</p>
+                            <h3>[동문시장/호스텔] 베드라디오 #1층펍 #루프탑</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>3</span>
+                                </div>
+                                <div>
+                                    <span>20,000원 / 1박</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/498912_medium_1585157458.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">한인민박 ㆍ 제주도</p>
+                            <h3>[구좌/민박] 제주 시월 (JeJu siwor 時越) #개인실 #중정 #...</h3>
+                            <div class="star">
+                                <div>
+                                   <span><img src="images/76e8ed4f346658545e984c1c2b55a188.svg" alt="후기 이벤트" width="12" height="12">후기이벤트</span>
+                                </div>
+                                <div>
+                                    <span>78,000원 / 1박</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/507701_medium_1589423146.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">한인민박 ㆍ 제주도</p>
+                            <h3>[애월/펜션] 플루메리아 D타입 #애월 #오션뷰 #바베큐</h3>
+                            <div class="star">
+                                <div>
+                                   <span>후기이벤트</span>
+                                </div>
+                                <div>
+                                    <span>117,000원 / 1박</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="culture">
+                <h2>마이리얼트립x가이드라이브</h2>
+                <div class="culture_slide">
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/514351_medium_1591355576.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">가이드 투어 ㆍ 런던</p>
+                            <h3>[랜선투어:BETA] 신기환 가이드의 내셔널 갤러리</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>3</span>
+                                </div>
+                                <div>
+                                    <span>2,900원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/514350_medium_1591355104.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">가이드 투어 ㆍ 파리</p>
+                            <h3>[랜선투어:BETA] 한주영 가이드의 몽생미셸</h3>
+                            <div class="star">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+                                    <span>6</span>
+                                </div>
+                                <div>
+                                    <span>2,900원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/515544_medium_1591865425.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">가이드 투어 ㆍ 제주도</p>
+                            <h3>이서준 가이드의 제주 스토리 : 동쪽편 (빛의벙커 입장료 포함)</h3>
+                            <div class="star">
+                                <div>
+                                    <span>후기 이벤트</span>
+                                </div>
+                                <div>
+                                    <span>59,000원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="culture_event culture01">
+                        <div class="menu_img">
+                            <img src="images/512595_medium_1590652281.jpg" alt="">
+                        </div>
+                        <div class="menu_txt">
+                            <p class="local_name">패키지 ㆍ 제주도</p>
+                            <h3>[오픈 특가] 박종희 가이드의 다시, 제주 1박2일</h3>
+                            <div class="star">
+                                <div>
+                                   <span>후기이벤트</span>
+                                </div>
+                                <div>
+                                    <span>259,000원 / 1인</span>
+                                    <span><img class="CardInstantBookingSticker-module__icon--2lQog" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgOSAxNiI+CiAgICA8cGF0aCBmaWxsPSIjRkZCRjAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjk2MyAxNlY5LjIzSDBMNS45MjYgMHY2Ljc3aDIuOTYzeiIvPgo8L3N2Zz4K" alt="즉시확정">즉시확정</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info">
+                <h2>마이리얼트립의 여행 정보</h2>
+                <div class="info_sns">
+                    <div class="info_fb">
+                        <img src="images/facebook.svg" alt=""><br>
+                        <a href="#">마이리얼트립 페이스북 페이지 &gt;</a>
+                        <p>마이리얼트립 페이스북 페이지에서 각 여행지별로 정리된 유용한 정보와 여행자분들을 위한 이벤트를 확인해보세요.</p>
+                    </div>
+                    <div class="info_in">
+                        <img src="images/348c9cdd99bf369fc2ff090f26dcc78a.svg" alt=""><br>
+                        <a href="#">마이리얼트립 인스타그램 &gt;</a>
+                        <p>세계 곳곳에서 활동중인 마이리얼트립의 가이드님과 여행자분들이 보내주신 아름다운 사진을 감상해보세요.</p>
+                    </div>
+                    <div class="info_nv">
+                        <img src="images/naver.svg" alt=""><br>
+                        <a href="#">마이리얼트립 네이버 블로그 &gt;</a>
+                        <p>마이리얼트립의 네이버 블로그에서 리얼생생 여행정보, 여행 후기, 추천 가이드 정보를 확인해보세요.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </main>
+
+        <footer id="footer">
+            <section class="customerService">
+                <h3>고객센터</h3>
+                <h3>1670-8208</h3>
+                <p>월~금: <span>09:00-18:00(점심시간 12:00-13:00) </span>공휴일&주말: <span>1:1 채팅 상담만 가능</span></p>
+                <p>항공권 환불,변경 접수: <span>월~금 09:00-17:00</span></p>
+            </section>
+            <section class="footer_menu">
+                <ul class="F_menu">
+                    <li>
+                        <a href="#">소개</a>
+                        <ul class="subF_menu">
+                            <li><a href="#">회사소개</a></li>
+                            <li><a href="#">채용</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">파트너</a>
+                        <ul class="subF_menu">
+                            <li><a href="#">파트너 등록하기</a></li>
+                            <li><a href="#">Affiliate 프로그램</a></li>
+                            <li><a href="#">리얼가이드</a></li>
+                            <li><a href="#">가이드 블로그</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">지원</a>
+                        <ul class="subF_menu">
+                            <li><a href="#">자주 묻는 질문</a></li>
+                            <li><a href="#">최저가 보장제</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section class="footer_bottom">
+                <div>
+                    <ul>
+                        <li><a href="#">이용 약관</a></li>
+                        <li><a href="#">개인정보 처리방침</a></li>
+                        <li><a href="#">취소 및 환불 정책</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p>상호명 (주)마이리얼트립 | 대표 이동건 | 개인정보보호책임자 정재훈 | 사업자등록번호 209-81-55339 사업자정보확인 | 통신판매업신고번호 2019-서울서초-0260 | 주소 서울특별시 서초구 강남대로 327, 대륭서초타워 18층(서초동) | 이메일 help@myrealtrip.com | 마케팅/제휴 문의 marketing@myrealtrip.com</p>
+                </div>
+                <div>
+                    <p>자사는 서울특별시관광협회 공제영업보증보험에 가입되어 있습니다. 마이리얼트립은 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 상품·거래정보 및 거래에 대하여 책임을 지지않습니다.</p>
+                </div>
+            </section>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
